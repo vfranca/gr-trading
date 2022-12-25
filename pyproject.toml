@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "gr-tk"
-version = "0.1.0"
-description = "Gerenciamento de risco - tool kit para CLI"
+name = "gr-trading"
+version = "0.2.0"
+description = "Comandos para cálculos de gerenciamento de risco no trading"
 authors = ["Valmir Franca <vfranca3@gmail.com>"]
 readme = "README.md"
 
@@ -15,4 +15,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-gr = "gr_tk.gr:cli"
+gr = "gr_trading.gr:cli"

@@ -1,2 +1,5 @@
-# gr
-Cálculos de gerenciamento de risco para trading
+# gr-trading
+
+Comandos para cálculos de gerenciamento de risco no trading
+
+
