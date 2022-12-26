@@ -8,10 +8,10 @@ import click
 
 
 # Importa os comandos
-from gr_tk.em import em
-from gr_tk.be import be
-from gr_tk.ta import ta
-from gr_tk.po import po
+from gr_trading.em import em
+from gr_trading.be import be
+from gr_trading.ta import ta
+from gr_trading.po import po
 
 
 # Cria o grupo de comandos gr
