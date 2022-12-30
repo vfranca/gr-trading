@@ -1,10 +1,7 @@
-"""
-scripts python
-Copyright 2022 Valmir França da Silva
-
-grupo de comandos gr (gerenciamento de risco)
-"""
+# gr-trading
+# Copyright 2022 Valmir França da Silva
 import click
+from gr_trading import __version__
 
 
 # Importa os comandos
@@ -15,18 +12,20 @@ from gr_trading.po import po
 
 
 # Cria o grupo de comandos gr
-@click.group()
-def cli():
-    """grupo de comandos gr (gernciamento de risco)."""
-    pass
+@click.group(invoke_without_command=True)
+@click.option("--version", "-v", is_flag=True, help="Show the version and exit.")
+def gr(version):
+    """grupo de comandos gr (gerenciamento de risco para trading)."""
+    if version:
+        click.echo("gr-trading %s" % __version__)
 
 
 # Adiciona os comandos
-cli.add_command(em)
-cli.add_command(be)
-cli.add_command(ta)
-cli.add_command(po)
+gr.add_command(em)
+gr.add_command(be)
+gr.add_command(ta)
+gr.add_command(po)
 
 
 if __name__ == "__main__":
-    cli()
+    gr()
