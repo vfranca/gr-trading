@@ -1,5 +1,6 @@
 # gr-trading
 # Copyright 2022 Valmir França da Silva
+# http://github.com/vfranca
 import click
 from gr_trading import __version__
 
@@ -18,6 +19,8 @@ def gr(version):
     """grupo de comandos gr (gerenciamento de risco para trading)."""
     if version:
         click.echo("gr-trading %s" % __version__)
+    else:
+        click.echo("Digite gr --help para ajuda")
 
 
 # Adiciona os comandos

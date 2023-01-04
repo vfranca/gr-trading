@@ -1,9 +1,6 @@
-"""
-scripts python
-Copyright 2021 Valmir França da Silva
-
-comando em (expectativa matemática)
-"""
+# gr-trading
+# Copyright 2022 Valmir França da Silva
+# http://github.com/vfranca
 import click
 
 
