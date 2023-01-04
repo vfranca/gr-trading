@@ -10,6 +10,7 @@ from gr_trading.em import em
 from gr_trading.be import be
 from gr_trading.ta import ta
 from gr_trading.po import po
+from gr_trading.r import r
 
 
 # Cria o grupo de comandos gr
@@ -19,8 +20,6 @@ def gr(version):
     """grupo de comandos gr (gerenciamento de risco para trading)."""
     if version:
         click.echo("gr-trading %s" % __version__)
-    else:
-        click.echo("Digite gr --help para ajuda")
 
 
 # Adiciona os comandos
@@ -28,6 +27,7 @@ gr.add_command(em)
 gr.add_command(be)
 gr.add_command(ta)
 gr.add_command(po)
+gr.add_command(r)
 
 
 if __name__ == "__main__":
