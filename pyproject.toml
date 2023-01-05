@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gr-trading"
-version = "0.4.0"
+version = "0.5.0"
 description = "Comandos para cálculos de gerenciamento de risco no trading"
 authors = ["Valmir Franca <vfranca3@gmail.com>"]
 readme = "README.md"

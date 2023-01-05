@@ -11,6 +11,7 @@ from gr_trading.be import be
 from gr_trading.ta import ta
 from gr_trading.po import po
 from gr_trading.r import r
+from gr_trading.e import e
 
 
 # Cria o grupo de comandos gr
@@ -28,6 +29,7 @@ gr.add_command(be)
 gr.add_command(ta)
 gr.add_command(po)
 gr.add_command(r)
+gr.add_command(e)
 
 
 if __name__ == "__main__":
