@@ -13,17 +13,19 @@ from gr_trading.conf import digits as d
 @click.option("--stop-loss", "-sl", type=float)
 @click.option("--take-profit", "-tp", type=float)
 def t(entrada, risco, retorno, stop_loss, take_profit):
-    """Calcula risco, retorno e payoff da operação."""
+    """Calcula o trade."""
     # Calcula o trade com stop loss definido
     if stop_loss:
-
         risco = entrada - stop_loss
     # Calcula o trade apenas com risco definido
     tp = entrada + risco
     sl = entrada - risco
-    # Calcula o trade com retorno definido
+    # Calcula o trade com retorno e risco definidos
     if retorno:
         tp = entrada + risco * retorno
+    # Calcula o trade com take profit e risco definidos
+    if take_profit:
+        tp = take_profit
     click.echo("%.{0}f tp".format(d) % tp)
     click.echo("%.{0}f e".format(d) % entrada)
     click.echo("%.{0}f sl".format(d) % sl)
