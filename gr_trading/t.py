@@ -9,7 +9,7 @@ from gr_trading.conf import digits as d
 @click.command()
 @click.argument("entrada", type=float)
 @click.option("--risco", "-r", type=float)
-@click.option("--retorno", "-rr", type=float)
+@click.option("--retorno", "-rr", type=float, default=1)
 @click.option("--stop-loss", "-sl", type=float)
 @click.option("--take-profit", "-tp", type=float)
 def t(entrada, risco, retorno, stop_loss, take_profit):
@@ -26,9 +26,21 @@ def t(entrada, risco, retorno, stop_loss, take_profit):
     # Calcula o trade com take profit e risco definidos
     if take_profit:
         tp = take_profit
-    click.echo("%.{0}f tp".format(d) % tp)
-    click.echo("%.{0}f e".format(d) % entrada)
+        retorno = (take_profit - entrada) / risco
+    # Exibe o stop loss
     click.echo("%.{0}f sl".format(d) % sl)
+    # Exibe o preço de entrada
+    click.echo("%.{0}f e".format(d) % entrada)
+    # Exibe a(s) parcial(is)
+    if retorno > 1:
+        for i in range(int(retorno)):
+            i += 1
+            if i == retorno:
+                continue
+            rp = entrada + risco * i
+            click.echo("%.{0}f %ix".format(d) % (rp, i))
+    # Exibe o take profit
+    click.echo("%.{0}f tp".format(d) % tp)
 
 
 if __name__ == "__main__":
