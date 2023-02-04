@@ -38,6 +38,16 @@ def test_calcula_uma_venda_com_stop_loss_definido():
     assert res.output == "114300 tp\n114500 e\n114700 sl\n"
 
 
+def test_calcula_uma_venda_com_risco_e_retorno_definidos():
+    res = run.invoke(gr, ["t", "114500", "--risco", "-300", "--retorno", "2"])
+    assert res.output == "113900 tp\n114500 e\n114800 sl\n"
+
+
+def test_calcula_uma_venda_com_risco_e_take_profit_definidos():
+    res = run.invoke(gr, ["t", "114500", "--risco", "-300", "--take-profit", "113810"])
+    assert res.output == "113810 tp\n114500 e\n114800 sl\n"
+
+
 # def test_calcula_um_trade_com_entrada_risco_e_retorno():
 # res = run.invoke(gr, ["t", "114500", "-r", "250", "-rr", "2"])
 # assert (
