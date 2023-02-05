@@ -10,7 +10,7 @@ run = CliRunner()
 
 def test_exibe_versao():
     res = run.invoke(gr, ["--version"])
-    assert res.output == "gr-trading 0.6.0\n"
+    assert res.output == "gr-trading 0.6\n"
 
 
 @mark.skip()
