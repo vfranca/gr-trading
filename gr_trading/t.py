@@ -27,20 +27,25 @@ def t(entrada, risco, retorno, stop_loss, take_profit):
     if take_profit:
         tp = take_profit
         retorno = (take_profit - entrada) / risco
-    # Exibe o stop loss
-    click.echo("%.{0}f sl".format(d) % sl)
-    # Exibe o preço de entrada
-    click.echo("%.{0}f e".format(d) % entrada)
-    # Exibe a(s) parcial(is)
+    # Exibe o take profit
+    click.echo("%.{0}f tp".format(d) % tp)
+    # Exibe as parciais
     if retorno > 1:
+        rp = []
         for i in range(int(retorno)):
             i += 1
             if i == retorno:
                 continue
-            rp = entrada + risco * i
-            click.echo("%.{0}f %ix".format(d) % (rp, i))
-    # Exibe o take profit
-    click.echo("%.{0}f tp".format(d) % tp)
+            rp.append(entrada + risco * i)
+        rp.reverse()
+        n = len(rp)
+        for parcial in rp:
+            click.echo("%.{0}f %iX".format(d) % (parcial, n))
+            n -= 1
+    # Exibe o preço de entrada
+    click.echo("%.{0}f e".format(d) % entrada)
+    # Exibe o stop loss
+    click.echo("%.{0}f sl".format(d) % sl)
 
 
 if __name__ == "__main__":
